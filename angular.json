@@ -1,7 +1,172 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "enlight": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/enlight",
+      "sourceRoot": "apps/enlight/src",
+      "prefix": "workspace",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/enlight",
+            "index": "apps/enlight/src/index.html",
+            "main": "apps/enlight/src/main.ts",
+            "polyfills": "apps/enlight/src/polyfills.ts",
+            "tsConfig": "apps/enlight/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/enlight/src/favicon.ico",
+              "apps/enlight/src/assets"
+            ],
+            "styles": ["apps/enlight/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/enlight/src/environments/environment.ts",
+                  "with": "apps/enlight/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "enlight:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "enlight:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "enlight:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/enlight/tsconfig.app.json",
+              "apps/enlight/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/enlight/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/enlight/jest.config.js",
+            "tsConfig": "apps/enlight/tsconfig.spec.json",
+            "setupFile": "apps/enlight/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "enlight-e2e": {
+      "root": "apps/enlight-e2e",
+      "sourceRoot": "apps/enlight-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/enlight-e2e/cypress.json",
+            "tsConfig": "apps/enlight-e2e/tsconfig.e2e.json",
+            "devServerTarget": "enlight:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "enlight:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/enlight-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/enlight-e2e/**"]
+          }
+        }
+      }
+    },
+    "ui": {
+      "projectType": "library",
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui/tsconfig.lib.json",
+              "libs/ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
+            "tsConfig": "libs/ui/tsconfig.spec.json",
+            "setupFile": "libs/ui/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "enlight"
 }

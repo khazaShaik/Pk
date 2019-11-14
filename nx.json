@@ -7,5 +7,15 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "enlight-e2e": {
+      "tags": []
+    },
+    "enlight": {
+      "tags": []
+    },
+    "ui": {
+      "tags": []
+    }
+  }
 }
