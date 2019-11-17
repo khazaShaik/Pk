@@ -1,1 +1,10 @@
-<p>home works!</p>
+<div class="admin-layout admin-container">
+  <nav class="sidenav-container"><workspace-sidenav></workspace-sidenav></nav>
+  <main>
+    <workspace-toolbar></workspace-toolbar>
+
+    <div class="main-content">
+      <router-outlet #outlet="outlet"></router-outlet>
+    </div>
+  </main>
+</div>
