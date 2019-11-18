@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +6,10 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
 
-  ngOnInit() {}
+  constructor() { }
 
-  getRouteAnimation(outlet: RouterOutlet) {
-    return (
-      outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation
-    );
+  ngOnInit() {
   }
+
 }
