@@ -10,7 +10,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
-
+import { CardTileComponent } from './card-tile/card-tile.component'
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 
@@ -27,7 +27,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     MatListModule,
     MatButtonToggleModule
   ],
-  declarations: [SearchBarComponent, SideNavComponent],
-  exports: [SearchBarComponent, SideNavComponent]
+  declarations: [SearchBarComponent, SideNavComponent, CardTileComponent],
+  exports: [SearchBarComponent, SideNavComponent, CardTileComponent]
 })
-export class UiModule {}
+export class UiModule { }
