@@ -25,7 +25,10 @@
               "apps/enlight/src/favicon.ico",
               "apps/enlight/src/assets"
             ],
-            "styles": ["apps/enlight/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/enlight/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
