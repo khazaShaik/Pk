@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-nav.component.scss']
 })
 export class SideNavComponent implements OnInit {
+  private navigationList: Array<string> = ['Home', 'Cart', 'My Collection'];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

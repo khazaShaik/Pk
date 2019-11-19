@@ -1,15 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SearchBarComponent } from './search-bar/search-bar.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
-import { MatInputModule } from '@angular/material/input';
+import { RouterModule } from '@angular/router';
+
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
+
 @NgModule({
-  imports: [CommonModule, MatInputModule, MatButtonModule, MatIconModule, MatCardModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatButtonToggleModule
+  ],
   declarations: [SearchBarComponent, SideNavComponent],
   exports: [SearchBarComponent, SideNavComponent]
 })
-export class UiModule { }
+export class UiModule {}
