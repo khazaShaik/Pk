@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { UiState } from '../+state/ui.reducer';
+import { fromUiActions } from '../+state/ui.actions';
 
 @Component({
   selector: 'ui-search-bar',
@@ -8,7 +11,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SearchBarComponent implements OnInit {
   @Input('placeholder') placeholder;
 
-  constructor() {}
+  constructor(private store: Store<UiState>) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.store.dispatch(new fromUiActions.SearchBarLoaded());
+  }
 }
