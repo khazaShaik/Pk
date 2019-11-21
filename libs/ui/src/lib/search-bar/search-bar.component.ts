@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { UiState } from '../+state/ui.reducer';
-import { fromUiActions } from '../+state/ui.actions';
+import { CommonService } from '../../../../services/src/lib/shared/common.service';
 
 @Component({
   selector: 'ui-search-bar',
@@ -10,10 +10,13 @@ import { fromUiActions } from '../+state/ui.actions';
 })
 export class SearchBarComponent implements OnInit {
   @Input('placeholder') placeholder;
+  public searchInput: string = '';
 
-  constructor(private store: Store<UiState>) {}
+  constructor(private commonService: CommonService) {}
 
-  ngOnInit() {
-    this.store.dispatch(new fromUiActions.SearchBarLoaded());
+  ngOnInit() {}
+
+  public onKeyUp() {
+    this.commonService.searchInput.next(this.searchInput);
   }
 }
