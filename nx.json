@@ -16,6 +16,12 @@
     },
     "ui": {
       "tags": []
+    },
+    "services": {
+      "tags": []
+    },
+    "utilities": {
+      "tags": []
     }
   }
 }

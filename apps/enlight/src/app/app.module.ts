@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { UiModule } from '../../../../libs/ui/src/lib/ui.module';
+import { ServicesModule } from '../../../../libs/services/src/lib/services.module';
 import { HomeModule } from './home/home.module';
 import { CartModule } from './cart/cart.module';
 import { CollectionModule } from './collection/collection.module';
@@ -18,6 +19,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    ServicesModule,
     UiModule,
     HomeModule,
     CartModule,
