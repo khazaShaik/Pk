@@ -15,14 +15,9 @@ import { CardTileComponent } from './card-tile/card-tile.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import * as fromUi from './+state/ui.reducer';
-import { UiEffects } from './+state/ui.effects';
-import { UiFacade } from './+state/ui.facade';
 import { NxModule } from '@nrwl/angular';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   imports: [
@@ -49,13 +44,10 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
         }
       }
     ),
-    EffectsModule.forRoot([UiEffects]),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
-    StoreRouterConnectingModule.forRoot(),
-    StoreModule.forFeature(fromUi.UI_FEATURE_KEY, fromUi.reducer)
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   declarations: [SearchBarComponent, SideNavComponent, CardTileComponent],
   exports: [SearchBarComponent, SideNavComponent, CardTileComponent],
-  providers: [UiFacade]
+  providers: []
 })
 export class UiModule {}

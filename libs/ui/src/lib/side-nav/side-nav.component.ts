@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UiState } from '../+state/ui.reducer';
-import { Store } from '@ngrx/store';
-import { UiActionTypes, fromUiActions } from '../+state/ui.actions';
 
 @Component({
   selector: 'ui-side-nav',
@@ -27,9 +24,7 @@ export class SideNavComponent implements OnInit {
     }
   ];
 
-  constructor(private store: Store<UiState>) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.store.dispatch(new fromUiActions.SideNavLoaded());
-  }
+  ngOnInit() {}
 }

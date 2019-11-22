@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { UiState } from '../+state/ui.reducer';
 import { CommonService } from '../../../../services/src/lib/shared/common.service';
 
 @Component({
