@@ -16,10 +16,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@workspace/ui": ["libs/ui/src/index.ts"],
-      "@workspace/home": ["app/home/index.ts"],
-      "@workspace/services": ["libs/services/src/index.ts"],
-      "@workspace/utilities": ["libs/utilities/src/index.ts"]
+      "@workspace/libs/ui": ["libs/ui/src/index.ts"],
+      "@workspace/enlight/home": ["app/home/index.ts"],
+      "@workspace/libs/services": ["libs/services/src/index.ts"],
+      "@workspace/libs/utilities": ["libs/utilities/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

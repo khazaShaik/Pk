@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-
-import { CommonService } from './common.service';
+import { CommonService } from '@workspace/libs/services';
 
 describe('CommonService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

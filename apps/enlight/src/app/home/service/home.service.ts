@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpWrapperService } from '../../../../../../libs/services/src/lib/http/http-wrapper.service';
+import { HttpWrapperService } from '@workspace/libs/services';
 
 @Injectable({
   providedIn: 'root'

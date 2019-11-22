@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-
-import { LoggerService } from './logger.service';
+import { LoggerService } from '@workspace/libs/services';
 
 describe('LoggerService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

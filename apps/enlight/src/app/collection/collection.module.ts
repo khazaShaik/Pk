@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UiModule } from '../../../../../libs/ui/src/lib/ui.module';
+import { UiModule } from '@workspace/libs/ui';
 
 import { CollectionRoutingModule } from './collection-routing.module';
 import { CollectionComponent } from './component/collection.component';

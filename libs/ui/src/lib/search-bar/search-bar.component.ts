@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CommonService } from '../../../../services/src/lib/shared/common.service';
+import { CommonService } from '@workspace/libs/services';
 
 @Component({
   selector: 'ui-search-bar',

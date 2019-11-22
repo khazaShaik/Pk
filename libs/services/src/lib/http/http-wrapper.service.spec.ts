@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-
-import { HttpWrapperService } from './http-wrapper.service';
+import { HttpWrapperService } from '@workspace/libs/services';
 
 describe('HttpWrapperService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
