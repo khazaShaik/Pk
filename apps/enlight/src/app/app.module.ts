@@ -14,10 +14,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { HttpClientModule } from '@angular/common/http';
+import { BooksFacade } from './+state/books.facade';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    HttpClientModule,
     BrowserModule,
     ServicesModule,
     UiModule,
@@ -43,7 +46,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule.forRoot()
   ],
-  providers: [],
+  providers: [BooksFacade],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
