@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'libs/services/src/lib/shared/common.service';
+import { HomeService } from '../service/home.service';
 
 @Component({
   selector: 'app-home',
@@ -826,10 +828,18 @@ export class HomeComponent implements OnInit {
      }
     ]
    }
-  constructor() { }
+  public searchInputData: any;
+  
+   constructor(private homeService: HomeService, private commonService: CommonService) { }
 
-  ngOnInit() {
-  }
+   ngOnInit() {
+     this.searchInputData = this.commonService.searchInput.subscribe();
+   }
+ 
+   public fetchBooksRecords() {
+     const booksData = this.homeService.searchBooks(this.searchInputData);
+   }
+ 
 
 
 

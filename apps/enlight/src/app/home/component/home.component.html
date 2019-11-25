@@ -3,4 +3,6 @@
 
   <card-tile *ngFor="let tilesData of jsonData.items; let i= index" [bookTitle]='tilesData.volumeInfo.title' [bookSubTitle]='tilesData.volumeInfo.subtitle' [smallThumbnail]='tilesData.volumeInfo.imageLinks?.smallThumbnail' [bookDescription]='tilesData.volumeInfo.description'>
     </card-tile>
+
+    <button (click)=fetchBooksRecords()>Fetch Books</button>
 </div>

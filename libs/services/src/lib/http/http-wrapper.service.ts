@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 import { throwError as observableThrowError, Observable } from 'rxjs';
 import {
@@ -23,14 +23,14 @@ export class HttpWrapperService {
   private OBSERVE_TYPE: HttpObserveOptions = 'response';
   private RESPONSE_TYPE: HttpResponseOptions = 'json';
 
-  constructor(private http: HttpClient, private loggerService: LoggerService) {}
+  constructor(@Inject(HttpClient) private http, private loggerService: LoggerService) {}
 
   public get(url: string, headers?: Headers, query?: Query, body?: Body) {
-    this.request('GET', url, headers, query, body);
+    return this.request('GET', url, headers, query, body);
   }
 
   public post(url: string, headers?: Headers, query?: Query, body?: Body) {
-    this.request('POST', url, headers, query, body);
+    return this.request('POST', url, headers, query, body);
   }
 
   public request<T>(
