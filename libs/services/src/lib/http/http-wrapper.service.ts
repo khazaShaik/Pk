@@ -25,11 +25,11 @@ export class HttpWrapperService {
 
   constructor(@Inject(HttpClient) private http, private loggerService: LoggerService) {}
 
-  public get(url: string, headers?: Headers, query?: Query, body?: Body) {
+  public get(url: string, headers?: Headers, query?: Query, body?: Body): Observable<any> {
     return this.request('GET', url, headers, query, body);
   }
 
-  public post(url: string, headers?: Headers, query?: Query, body?: Body) {
+  public post(url: string, headers?: Headers, query?: Query, body?: Body): Observable<any> {
     return this.request('POST', url, headers, query, body);
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommonService } from '@workspace/libs/services';
 
 @Component({
@@ -7,14 +7,20 @@ import { CommonService } from '@workspace/libs/services';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent implements OnInit {
+
   @Input('placeholder') placeholder;
+  @Output() searchValue = new EventEmitter();
+
   public searchInput: string = '';
 
-  constructor(private commonService: CommonService) {}
+  constructor(private commonService: CommonService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   public onKeyUp() {
     this.commonService.searchInput.next(this.searchInput);
+  }
+  public onSearch(){
+    this.searchValue.emit(this.searchInput)
   }
 }
