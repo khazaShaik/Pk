@@ -32,7 +32,6 @@ export class BooksEffects {
             map(response => {
               // this.commonService.booksResponseData.next(response.body);
               this.booksData = response.body.items;
-              console.log(this.booksData);
               return new BooksLoaded(this.booksData);
             })
           );

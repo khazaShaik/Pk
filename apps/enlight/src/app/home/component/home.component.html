@@ -1,6 +1,16 @@
 <div class="home-wrapper">
-  <div class="search-wrapper"><ui-search-bar [placeholder]="'Search in Library'" (searchValue)=fetchBooksRecords($event)></ui-search-bar></div>
-
-  <card-tile *ngFor="let tilesData of booksRecords.items; let i= index" [bookTitle]='tilesData.volumeInfo.title' [bookSubTitle]='tilesData.volumeInfo.subtitle' [smallThumbnail]='tilesData.volumeInfo.imageLinks?.smallThumbnail' [bookDescription]='tilesData.volumeInfo.description'>
-    </card-tile>
+  <div class="search-wrapper">
+    <ui-search-bar
+      [placeholder]="'Search in Library'"
+      (searchValue)="fetchBooksRecords($event)"
+    ></ui-search-bar>
+  </div>
+  <card-tile
+    *ngFor="let tilesData of booksRecords"
+    [bookTitle]="tilesData.volumeInfo.title"
+    [bookSubTitle]="tilesData.volumeInfo.subtitle"
+    [smallThumbnail]="tilesData.volumeInfo.imageLinks?.smallThumbnail"
+    [bookDescription]="tilesData.volumeInfo.description"
+  >
+  </card-tile>
 </div>
