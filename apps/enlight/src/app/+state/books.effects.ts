@@ -20,22 +20,22 @@ import { tap, mergeMap } from 'rxjs/operators';
 export class BooksEffects {
   public defaultHeaders: HttpHeaders = new HttpHeaders();
 
-
-  loadBooks$ = createEffect(() => this.dataPersistence.fetch(
-    BooksActionTypes.LoadBooks,
-    {
+  loadBooks$ = createEffect(() =>
+    this.dataPersistence.fetch(BooksActionTypes.LoadBooks, {
       run: (action: LoadBooks, state: BooksPartialState) => {
-        debugger
         // Your custom REST 'load' logic goes here. For now just return an empty list...
-        let URL = HOME_CONSTANTS.URL
+        let URL = HOME_CONSTANTS.URL;
         // URL = URL + keyword;
-        this.httpWrapperService.get(URL, this.defaultHeaders, {}, {}).pipe(map((response) => {
-          
-          // this.commonService.booksResponseData.next(response.body);
-          this.booksData = response.body;
-          console.log(this.booksData);
-        }));
-        return new BooksLoaded(this.booksData);
+        return this.httpWrapperService
+          .get(URL, this.defaultHeaders, {}, {})
+          .pipe(
+            map(response => {
+              // this.commonService.booksResponseData.next(response.body);
+              this.booksData = response.body.items;
+              console.log(this.booksData);
+              return new BooksLoaded(this.booksData);
+            })
+          );
       },
 
       onError: (action: LoadBooks, error) => {
@@ -49,8 +49,12 @@ export class BooksEffects {
   constructor(
     private actions$: Actions,
     private dataPersistence: DataPersistence<BooksPartialState>,
-    private httpWrapperService: HttpWrapperService, private commonService: CommonService
+    private httpWrapperService: HttpWrapperService,
+    private commonService: CommonService
   ) {
-    this.defaultHeaders.append('Content-Type', 'application/json; charset=utf-8');
+    this.defaultHeaders.append(
+      'Content-Type',
+      'application/json; charset=utf-8'
+    );
   }
 }

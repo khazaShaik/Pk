@@ -17,6 +17,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { HttpClientModule } from '@angular/common/http';
 import { BooksFacade } from './+state/books.facade';
 import { BooksEffects } from './+state/books.effects';
+import * as fromBooksReducer from './+state/books.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,7 +35,7 @@ import { BooksEffects } from './+state/books.effects';
     ),
     BrowserAnimationsModule,
     StoreModule.forRoot(
-      {},
+      { books: fromBooksReducer.reducer },
       {
         metaReducers: !environment.production ? [] : [],
         runtimeChecks: {
