@@ -16,17 +16,17 @@ export class HomeService {
     this.defaultHeaders.append('Content-Type', 'application/json; charset=utf-8');
   }
 
-  public searchBooks(keyword: string): Observable<any> {
+  public searchBooks(keyword: string) {
     // TODO: Request google API through http wrapper service and bind the 
 
-    let URL = HOME_CONSTANTS.URL
-    URL = URL + keyword;  
-    return this.httpWrapperService.get(URL, this.defaultHeaders, {}, {}).pipe(map((response) => {
-      this.commonService.booksResponseData.next(response.body);
-      return response.body;
-    }),
-      catchError((error) => {
-        throw error;
-      }));
+    // let URL = HOME_CONSTANTS.URL
+    // URL = URL + keyword;  
+    // return this.httpWrapperService.get(URL, this.defaultHeaders, {}, {}).pipe(map((response) => {
+    //   this.commonService.booksResponseData.next(response.body);
+    //   return response.body;
+    // }),
+    //   catchError((error) => {
+    //     throw error;
+    //   }));
   }
 }

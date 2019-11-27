@@ -16,6 +16,7 @@ import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { HttpClientModule } from '@angular/common/http';
 import { BooksFacade } from './+state/books.facade';
+import { BooksEffects } from './+state/books.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -42,7 +43,7 @@ import { BooksFacade } from './+state/books.facade';
         }
       }
     ),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([BooksEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule.forRoot()
   ],
