@@ -9,6 +9,7 @@ export enum BooksActionTypes {
 
 export class LoadBooks implements Action {
   readonly type = BooksActionTypes.LoadBooks;
+  constructor(public payload:any){}
 }
 
 export class BooksLoadError implements Action {

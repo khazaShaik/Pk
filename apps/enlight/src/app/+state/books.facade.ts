@@ -13,8 +13,7 @@ export class BooksFacade {
   selectedBooks$ = this.store.pipe(select(booksQuery.getSelectedBooks));
 
   constructor(private store: Store<BooksPartialState>) {}
-
-  loadAll() {
-    this.store.dispatch(new LoadBooks());
+  dispatchSearchKeyToStore(searchKey) {
+    this.store.dispatch(new LoadBooks(searchKey))
   }
 }

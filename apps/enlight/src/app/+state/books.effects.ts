@@ -25,12 +25,11 @@ export class BooksEffects {
       run: (action: LoadBooks, state: BooksPartialState) => {
         // Your custom REST 'load' logic goes here. For now just return an empty list...
         let URL = HOME_CONSTANTS.URL;
-        // URL = URL + keyword;
+        URL = URL + action.payload;
         return this.httpWrapperService
           .get(URL, this.defaultHeaders, {}, {})
           .pipe(
             map(response => {
-              // this.commonService.booksResponseData.next(response.body);
               this.booksData = response.body.items;
               return new BooksLoaded(this.booksData);
             })

@@ -2,11 +2,10 @@
   <div class="search-wrapper">
     <ui-search-bar
       [placeholder]="'Search in Library'"
-      (searchValue)="fetchBooksRecords($event)"
     ></ui-search-bar>
   </div>
   <card-tile
-    *ngFor="let tilesData of booksRecords"
+    *ngFor="let tilesData of (booksRecords$  | async)"
     [bookTitle]="tilesData.volumeInfo.title"
     [bookSubTitle]="tilesData.volumeInfo.subtitle"
     [smallThumbnail]="tilesData.volumeInfo.imageLinks?.smallThumbnail"

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommonService } from '@workspace/libs/services';
+import { BooksFacade } from 'apps/enlight/src/app/+state/books.facade';
 
 @Component({
   selector: 'ui-search-bar',
@@ -13,14 +14,17 @@ export class SearchBarComponent implements OnInit {
 
   public searchInput: string = '';
 
-  constructor(private commonService: CommonService) { }
+  constructor(private commonService: CommonService, private booksFacade: BooksFacade) { }
 
   ngOnInit() { }
 
   public onKeyUp() {
-    this.commonService.searchInput.next(this.searchInput);
+    // this.commonService.searchInput.next(this.searchInput);
   }
-  public onSearch(){
-    this.searchValue.emit(this.searchInput)
+  public onSearch() {
+    // this.commonService.searchInput.subscribe((searchKey) => {
+      this.booksFacade.dispatchSearchKeyToStore(this.searchInput);
+    // });
+    // this.searchValue.emit(this.searchInput)
   }
 }

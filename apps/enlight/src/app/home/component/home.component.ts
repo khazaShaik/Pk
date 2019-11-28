@@ -14,7 +14,7 @@ import { BooksFacade } from '../../+state/books.facade';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public booksRecords: any[];
+  public booksRecords$:any;
   public searchInputData: any;
 
   constructor(
@@ -22,16 +22,13 @@ export class HomeComponent implements OnInit {
     private commonService: CommonService,
     private booksFacade: BooksFacade,
     private ref: ChangeDetectorRef
-  ) {}
+  ) {
+    this.booksRecords$ = this.booksFacade.allBooks$
+  }
 
   ngOnInit() {
     this.searchInputData = this.commonService.searchInput.subscribe();
   }
 
-  public fetchBooksRecords(searchedData) {
-    this.booksFacade.loadAll();
-    this.booksFacade.allBooks$.subscribe(data => {
-      this.booksRecords = data;
-    });
-  }
+
 }
