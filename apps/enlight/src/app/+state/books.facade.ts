@@ -4,7 +4,7 @@ import { select, Store } from '@ngrx/store';
 
 import { BooksPartialState } from './books.reducer';
 import { booksQuery } from './books.selectors';
-import { LoadBooks } from './books.actions';
+import { LoadBooks , BooksSelected } from './books.actions';
 
 @Injectable()
 export class BooksFacade {
@@ -15,5 +15,8 @@ export class BooksFacade {
   constructor(private store: Store<BooksPartialState>) {}
   dispatchSearchKeyToStore(searchKey) {
     this.store.dispatch(new LoadBooks(searchKey))
+  }
+  dispatchSelectedIdToStore(selecedId){
+    this.store.dispatch(new BooksSelected(selecedId))
   }
 }

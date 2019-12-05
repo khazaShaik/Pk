@@ -10,6 +10,7 @@
     [bookSubTitle]="tilesData.volumeInfo.subtitle"
     [smallThumbnail]="tilesData.volumeInfo.imageLinks?.smallThumbnail"
     [bookDescription]="tilesData.volumeInfo.description"
+    (click) = 'OnBookSelect(tilesData.id)'
   >
   </card-tile>
 </div>

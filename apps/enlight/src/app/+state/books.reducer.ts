@@ -41,6 +41,13 @@ export function reducer(
       };
       break;
     }
+    case BooksActionTypes.BooksSelected:{
+      state = {
+        ...state,
+        selectedId: action.payload,
+     };
+      break;
+    }
   }
   return state;
 }

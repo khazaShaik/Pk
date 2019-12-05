@@ -4,7 +4,8 @@ import { Entity } from './books.reducer';
 export enum BooksActionTypes {
   LoadBooks = '[Books] Load Books',
   BooksLoaded = '[Books] Books Loaded',
-  BooksLoadError = '[Books] Books Load Error'
+  BooksLoadError = '[Books] Books Load Error',
+  BooksSelected = '[Books] Books Selected'
 }
 
 export class LoadBooks implements Action {
@@ -21,11 +22,15 @@ export class BooksLoaded implements Action {
   readonly type = BooksActionTypes.BooksLoaded;
   constructor(public payload: Entity[]) {}
 }
-
-export type BooksAction = LoadBooks | BooksLoaded | BooksLoadError;
+export class BooksSelected implements Action{
+  readonly type = BooksActionTypes.BooksSelected;
+  constructor(public payload : string){}
+}
+export type BooksAction = LoadBooks | BooksLoaded | BooksLoadError | BooksSelected;
 
 export const fromBooksActions = {
   LoadBooks,
   BooksLoaded,
-  BooksLoadError
+  BooksLoadError,
+  BooksSelected
 };
