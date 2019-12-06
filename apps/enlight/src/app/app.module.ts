@@ -28,8 +28,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+
 import {MatGridListModule} from '@angular/material/grid-list';
 
+import{FlexLayoutModule} from '@angular/flex-layout';
 @NgModule({
   declarations: [AppComponent, DetailComponent],
   imports: [
@@ -50,6 +52,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatListModule,
     MatButtonToggleModule,
     MatGridListModule,
+    FlexLayoutModule,
 
     RouterModule.forRoot(
       [{ path: '', redirectTo: 'home', pathMatch: 'full' }],

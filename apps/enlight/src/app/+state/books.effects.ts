@@ -13,8 +13,6 @@ import { HttpWrapperService, CommonService } from '@workspace/libs/services';
 import { HttpHeaders } from '@angular/common/http';
 import { HOME_CONSTANTS } from '../utils/constants';
 import { map } from 'rxjs/internal/operators/map';
-import { Observable } from 'rxjs';
-import { tap, mergeMap } from 'rxjs/operators';
 
 @Injectable()
 export class BooksEffects {

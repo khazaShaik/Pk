@@ -4,12 +4,14 @@ import { select, Store } from '@ngrx/store';
 
 import { BooksPartialState } from './books.reducer';
 import { booksQuery } from './books.selectors';
-import { LoadBooks , BooksSelected } from './books.actions';
+import { LoadBooks, BooksSelected, AddToCart } from './books.actions';
 
 @Injectable()
 export class BooksFacade {
   loaded$ = this.store.pipe(select(booksQuery.getLoaded));
   allBooks$ = this.store.pipe(select(booksQuery.getAllBooks));
+  cartBooks$ = this.store.pipe(select(booksQuery.getCartBooks));
+
   selectedBooks$ = this.store.pipe(select(booksQuery.getSelectedBooks));
 
   constructor(private store: Store<BooksPartialState>) {}
@@ -18,5 +20,8 @@ export class BooksFacade {
   }
   dispatchSelectedIdToStore(selecedId){
     this.store.dispatch(new BooksSelected(selecedId))
+  }
+  dispatchBookIdToCartStore(bookId){
+    this.store.dispatch(new AddToCart(bookId))
   }
 }

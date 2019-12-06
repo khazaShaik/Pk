@@ -19,4 +19,8 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  OnAddToCart(){
+    this.booksFacade.dispatchBookIdToCartStore(this.selectedBook);
+  }
 }
