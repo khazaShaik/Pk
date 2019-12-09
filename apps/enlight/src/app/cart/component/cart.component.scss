@@ -1,0 +1,41 @@
+/* GLOBAL STYLES */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #aaa;
+  margin: 0px 50px 50px;
+}
+.item {
+  font-family: sans-serif;
+  font-weight: bold;
+  width: 850px;
+  display: flex;
+}
+.item .content{
+    width: 100%;
+    flex-wrap: wrap;
+}
+.container {
+  display: flex;
+  background-color: #f5ca3c;
+  align-items: left;
+  padding: 10px 30px 30px 10px;
+
+}
+.detail-book-thumbnail {
+  text-align: left;
+  display: block;
+  margin-left: 5px;
+  margin-top: 5px;
+  max-width: 120px;
+  max-height: 80px;
+  max-block-size: 200px;
+}
+.detail-card-inner {
+  width: 100%;
+  flex: 1 0 50%;
+  flex-grow: 2;
+  display: inline-block;
+}

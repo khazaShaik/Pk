@@ -1,4 +1,4 @@
-<!-- <mat-grid-list cols="4" rowHeight="3:1">
+<mat-grid-list cols="4" rowHeight="3:1">
   <mat-grid-tile colspan="3" rowspan="6">
     <mat-card class="detail-card-outer">
       <div class="detail-info">
@@ -12,25 +12,36 @@
             <h2 class="md-display-1">{{selectedBook.volumeInfo.title}} </h2>
           </mat-card-title>
           <mat-card-subtitle>
+            <div>
             <h3 class="md-body-2">ww{{selectedBook.volumeInfo.subtitle}} </h3>
+          </div>
+          <div>
             <p>ww{{selectedBook.volumeInfo.authors}}</p>
+          </div>
+          <div>
             <p>{{selectedBook.volumeInfo.publisher}}</p>
-            <p>{{selectedBook.volumeInfo.pageCount}}</p>
-
+          </div>
+          <div>
+             <p>{{selectedBook.volumeInfo.pageCount}}</p>
+            </div>
+            <div>
             <p>{{selectedBook.volumeInfo.averageRating}}</p>
-
+          </div>
+          <div>
             <p>{{selectedBook.volumeInfo.ratingsCount}}</p>
-
+          </div>
+          <div>
             <p>{{selectedBook.volumeInfo.language}}</p>
-
+          </div>
+          <div>
             <p>ww{{selectedBook.volumeInfo.previewLink}}</p>
-
+          </div>
 
           </mat-card-subtitle>
         </mat-card-header>
       </div>
       <div class="detail-content">
-        <p>ee{{selectedBook.volumeInfo.description}}</p>
+          <p>ee{{selectedBook.volumeInfo.description}}</p>
 
       </div>
 
@@ -44,9 +55,9 @@
   <mat-grid-tile>2</mat-grid-tile>
   <mat-grid-tile>3</mat-grid-tile>
   <mat-grid-tile>4</mat-grid-tile>
-</mat-grid-list> -->
+</mat-grid-list>
 
-<div class='book-detail-hldr'>
+<!-- <div class='book-detail-hldr'>
     <div class="card-hldr">
       <div class="inner-card-hldr">
           <mat-card class="book-info-card">
@@ -56,9 +67,15 @@
               </mat-card-header>
               <img mat-card-image src="{{selectedBook.volumeInfo.imageLinks?.smallThumbnail}}"
               class="detail-book-thumbnail"  alt="Photo">
+<<<<<<< HEAD
               <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
                  alt="Photo of a Shiba Inu"> -->
               <mat-card-actions class="book-action-btns">
+=======
+               <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                 alt="Photo of a Shiba Inu"> 
+              <mat-card-actions>
+>>>>>>> 8e5caa189461146711474dda01c4e7c77ee9e62c
                 <button mat-button class="addtocard-btn book-btn">ADD TO CART</button>
                 <button mat-button class='buy-btn book-btn'>BUY</button>
               </mat-card-actions>
@@ -123,4 +140,4 @@
       
       
     </div>
-  </div>
+  </div> -->

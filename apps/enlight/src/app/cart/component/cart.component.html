@@ -1,28 +1,38 @@
-<div class="container" fxFlexFill>
-  <div class="flex-container" fxFlexOffset="20px" fxLayoutGap="5px" fxLayoutAlign="space-evently start"
-    fxLayout="column" fxLayout.xs="column" fxFlex="90%">
-    <mat-card class="child-1" fxFlex="flex: 1 0 auto">1. One</mat-card>
-    <mat-card class="child-2">2. Two</mat-card>
-    <mat-card class="child-3">3. Three</mat-card>
-
-
-
-
-
-
-
-
-    
-    <div class="items-controls-container" fxFlex="0 0 auto" fxLayout="row wrap" fxLayoutAlign="space-around">
-
-      <h3 fxFlex="1 1 100%">ITEMS</h3>
-      <div fxFlex="1 1 100%">
-        <div class="items-number-control" fxFlex="1 1 100px" fxLayout="row wrap" fxLayoutAlign="space-around">
-          <h4>NUMBER</h4>
-          <div class="items-number" fxFlex="1 1 100%" fxLayout="row" fxLayoutAlign="center">
-            <h1>{{items}}</h1>
+<div class="container" >
+  <div class="flex-container" fxLayoutAlign="start stretch" fxFlexOffset="20px" fxLayoutGap="5px" fxLayout="column" fxLayout.xs="column"
+    fxFlex="100%">
+    <mat-card>
+      <mat-card-title>
+        Cart
+      </mat-card-title>
+    </mat-card>
+    <mat-card class="detail-card-inner">
+      <mat-card-header class="detail-header">
+          <mat-card-subtitle>
+              Your Cart Items
+            </mat-card-subtitle>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      
+      <mat-card-content class="item" *ngFor="let selectedBook of (cartBooks$  | async)">
+        <div ></div>
+        <div class="item item-image">
+          <img mat-card-image src="{{selectedBook.volumeInfo.imageLinks?.smallThumbnail}}"
+            class="detail-book-thumbnail">
+        </div>
+        <div class="content">
+          <div>
+            <h2 class="md-display-1">{{selectedBook.volumeInfo.title}} </h2>
+            <h3 >ww{{selectedBook.volumeInfo.subtitle}} </h3>
+            <body-1>ww{{selectedBook.volumeInfo.authors}}</p>
+            <p>{{selectedBook.volumeInfo.publisher}}</p>
+            <p>{{selectedBook.volumeInfo.pageCount}}</p>
+            <p>{{selectedBook.volumeInfo.averageRating}}</p>
+            <p>{{selectedBook.volumeInfo.ratingsCount}}</p>
           </div>
 
+        </div>
+        <mat-card-actions class="item">
           <button mat-mini-fab fxFlex="0 0 auto" (click)="add('items');" color="accent">
             <mat-icon>add</mat-icon>
           </button>
@@ -30,9 +40,12 @@
           <button mat-mini-fab fxFlex="0 0 auto" (click)="remove('items');" color="accent">
             <mat-icon>remove</mat-icon>
           </button>
-        </div>
-      </div>
+        </mat-card-actions>
+        <mat-divider></mat-divider>
 
-    </div>
+      </mat-card-content>
+
+    </mat-card>
+    <mat-card></mat-card>
   </div>
 </div>
