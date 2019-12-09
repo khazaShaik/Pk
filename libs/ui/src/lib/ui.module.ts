@@ -18,6 +18,7 @@ import { StoreModule } from '@ngrx/store';
 import { NxModule } from '@nrwl/angular';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 @NgModule({
   imports: [
@@ -46,8 +47,8 @@ import { environment } from '../environments/environment';
     ),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
-  declarations: [SearchBarComponent, SideNavComponent, CardTileComponent],
-  exports: [SearchBarComponent, SideNavComponent, CardTileComponent],
+  declarations: [SearchBarComponent, SideNavComponent, CardTileComponent, StarRatingComponent],
+  exports: [SearchBarComponent, SideNavComponent, CardTileComponent,StarRatingComponent],
   providers: []
 })
 export class UiModule {}
