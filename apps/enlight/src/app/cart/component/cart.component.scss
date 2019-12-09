@@ -8,7 +8,6 @@ body {
   margin: 0px 50px 50px;
 }
 .item {
-  padding: 2rem;
   font-family: sans-serif;
   font-weight: bold;
   width: 850px;
@@ -16,15 +15,13 @@ body {
 }
 .item .content{
     width: 100%;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 .container {
-  position: initial;
   display: flex;
-  justify-content: space-around;
   background-color: #f5ca3c;
   align-items: left;
-  padding: 10px 10px 30px;
+  padding: 10px 30px 30px 10px;
 
 }
 .detail-book-thumbnail {
@@ -32,13 +29,13 @@ body {
   display: block;
   margin-left: 5px;
   margin-top: 5px;
-  max-width: 150px;
-  max-height: 200px;
-  max-block-size: 250px;
+  max-width: 120px;
+  max-height: 80px;
+  max-block-size: 200px;
 }
 .detail-card-inner {
   width: 100%;
   flex: 1 0 50%;
+  flex-grow: 2;
   display: inline-block;
-  height: 250px;
 }
